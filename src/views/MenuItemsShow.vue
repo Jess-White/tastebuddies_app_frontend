@@ -34,7 +34,7 @@
                   <div class="container">
                     <div class="row">
                       <form class="col" v-on:submit.prevent="updateMenuItem()">
-                        <h1">Edit Menu Item</h1>
+                        <h1>Edit Menu Item</h1>
                         <ul>
                           <li class="text-danger" v-for="error in errors">{{ error }}</li>
                         </ul>
@@ -96,7 +96,7 @@ var axios = require('axios');
     },
     created: function() {
       axios 
-        .get("/api/menu_items/" + this.$route.params.id)
+        .get("/menu_items/" + this.$route.params.id)
         .then(response => {
           this.menu_items = response.data
         });
@@ -104,7 +104,7 @@ var axios = require('axios');
     methods: {
       destroyMenuItem: function() {
         axios
-          .delete("/api/menu_items/" + this.$route.params.id)
+          .delete("/menu_items/" + this.$route.params.id)
           .then(response => {
             this.$router.push("/menu_items");
           });
@@ -119,7 +119,7 @@ var axios = require('axios');
 
     const jwt = localStorage.getItem("jwt")
     axios
-    .patch("/api/menu_items/" + this.$route.params.id, clientParams, {
+    .patch("/menu_items/" + this.$route.params.id, clientParams, {
       headers: {
         "Authorization": `Bearer ${jwt}`
       }
@@ -140,7 +140,7 @@ var axios = require('axios');
     watch: {
       $route: function() {
         axios
-        .get("/api/menu_items/" + this.$route.params.id)
+        .get("/menu_items/" + this.$route.params.id)
         .then(response => {
           this.menu_items = response.data;
         });

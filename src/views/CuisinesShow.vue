@@ -28,7 +28,7 @@ var axios = require('axios');
     },
     created: function() {
       axios 
-        .get("/api/cuisines/" + this.$route.params.id)
+        .get("/cuisines/" + this.$route.params.id)
         .then(response => {
           this.cuisine = response.data
         });
@@ -36,7 +36,7 @@ var axios = require('axios');
     watch: {
       $route: function() {
         axios
-        .get("/api/cuisines/" + this.$route.params.id)
+        .get("/cuisines/" + this.$route.params.id)
         .then(response => {
           this.cuisines = response.data;
         });
