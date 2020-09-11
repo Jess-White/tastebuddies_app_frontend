@@ -104,7 +104,7 @@ var axios = require('axios');
           cuisine_id: ""
           
         },
-        errors: []
+        errors: [],
         showEditRestaurantForm: false
       };
     },

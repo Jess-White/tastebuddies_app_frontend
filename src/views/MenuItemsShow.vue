@@ -90,7 +90,7 @@ var axios = require('axios');
           restaurant_id: "",
           
         },
-        errors: []
+        errors: [],
         showEditMenuItemForm: false
       };
     },

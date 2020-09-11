@@ -4,7 +4,8 @@
      <div class="row">
        <div>
         <h4 class="text-center">Cuisine: {{cuisine.type}}</h4>
-     </div> 
+      </div> 
+    </div>
 
 </div>
 </template>
@@ -22,7 +23,7 @@ var axios = require('axios');
           id: "",
           type: "",
           errors: [],
-        };
+        },
       };
     },
     created: function() {
