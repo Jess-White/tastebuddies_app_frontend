@@ -4,6 +4,14 @@ import Home from '../views/Home.vue'
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import About from "../views/About.vue";
+import CuisinesIndex from "../views/CuisinesIndex.vue";
+import CuisinesShow from "../views/CuisinesShow.vue";
+import Dashboard from "../views/Dashboard.vue";
+import MenuItemsIndex from "../views/MenuItemsIndex.vue";
+// import MenuItemsShow from "../views/MenuItemsShow.vue";
+import RestaurantsIndex from "../views/RestaurantsIndex.vue";
+// import RestaurantsShow from "../views/RestaurantsShow.vue";
 
 
 Vue.use(VueRouter)
@@ -24,7 +32,15 @@ Vue.use(VueRouter)
   },
   { path: "/signup", name: "signup", component: Signup },
   { path: "/login", name: "login", component: Login },
-  { path: "/logout", name: "logout", component: Logout }
+  { path: "/logout", name: "logout", component: Logout },
+  { path: "/about", name: "about", component: About },
+  { path: "/cuisines", name: "cuisines", component: CuisinesIndex },
+  { path: "/cuisines/:id", name: "cuisines-show", component: CuisinesShow },
+  { path: "/dashboard", name: "dashboard", component: Dashboard },
+  { path: "/menu-items", name: "menu-items", component: MenuItemsIndex },
+  // { path: "/menu-items/:id", name: "menu-items-show", component: MenuItemsShow },
+  // { path: "/restaurants/:id", name: "restaurants-show", component: RestaurantsShow },
+  { path: "/restaurants", name: "restaurants", component: RestaurantsIndex }
 ];
 
 const router = new VueRouter({
