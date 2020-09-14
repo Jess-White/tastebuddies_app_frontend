@@ -38,7 +38,7 @@ export default {
     }
   },
   created: function () {
-    axios.get("/api/cuisines/").then((response) => {
+    axios.get("/cuisines/").then((response) => {
       this.cuisines = response.data;
     });
   },

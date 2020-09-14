@@ -54,7 +54,7 @@
                   <div class="container">
                     <div class="row">
                       <form class="col" v-on:submit.prevent="updateMenuItem()">
-                        <h1">Edit Menu Item</h1>
+                        <h1>Edit Menu Item</h1>
                         <ul>
                           <li class="text-danger" v-for="error in errors">{{ error }}</li>
                         </ul>
@@ -116,7 +116,7 @@ export default {
     showEditMenuItemsForm: false;
   },
   created: function () {
-    axios.get("/api/menu-items/").then((response) => {
+    axios.get("/menu-items/").then((response) => {
       this.menu_items = response.data;
     });
   },
@@ -130,7 +130,7 @@ export default {
       };
 
       axios
-        .post("/api/menu_items/", clientParams)
+        .post("/menu_items/", clientParams)
         .then((response) => {
           this.$router.push("/menu_items");
         })
@@ -141,7 +141,7 @@ export default {
     },
     destroyMenuItem: function () {
       axios
-        .delete("/api/menu_items/" + this.$route.params.id)
+        .delete("/menu_items/" + this.$route.params.id)
         .then((response) => {
           this.$router.push("/menu_items/");
         });
@@ -156,7 +156,7 @@ export default {
 
       const jwt = localStorage.getItem("jwt");
       axios
-        .patch("/api/menu_items/" + this.$route.params.id, clientParams, {
+        .patch("/menu_items/" + this.$route.params.id, clientParams, {
           headers: {
             Authorization: `Bearer ${jwt}`,
           },

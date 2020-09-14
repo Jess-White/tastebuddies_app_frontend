@@ -53,7 +53,7 @@
           <router-link v-bind:to="'/restaurants/' + restaurant.id">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-name">{{restaurant.name}}</h5>
+                <h5 class="card-name">{{ restaurant.name }}</h5>
               </div>
             </div>
           </router-link>
@@ -64,7 +64,7 @@
                   <div class="container">
                     <div class="row">
                       <form class="col" v-on:submit.prevent="updateRestaurant()">
-                        <h1">Edit Restaurant</h1>
+                        <h1>Edit Restaurant</h1>
                         <ul>
                           <li class="text-danger" v-for="error in errors">{{ error }}</li>
                         </ul>
@@ -136,7 +136,7 @@ export default {
     showEditRestaurantForm: false;
   },
   created: function () {
-    axios.get("/api/restaurants/").then((response) => {
+    axios.get("/restaurants/").then((response) => {
       this.restaurants = response.data;
     });
   },
@@ -152,7 +152,7 @@ export default {
       };
 
       axios
-        .post("/api/restaurants/", clientParams)
+        .post("/restaurants/", clientParams)
         .then((response) => {
           this.$router.push("/restaurants");
         })
@@ -163,7 +163,7 @@ export default {
     },
     destroyRestaurant: function () {
       axios
-        .delete("/api/restaurants/" + this.$route.params.id)
+        .delete("/restaurants/" + this.$route.params.id)
         .then((response) => {
           this.$router.push("/restaurants/");
         });
@@ -180,7 +180,7 @@ export default {
 
       const jwt = localStorage.getItem("jwt");
       axios
-        .patch("/api/restaurants/" + this.$route.params.id, clientParams, {
+        .patch("/restaurants/" + this.$route.params.id, clientParams, {
           headers: {
             Authorization: `Bearer ${jwt}`,
           },
