@@ -9,9 +9,9 @@ import CuisinesIndex from "../views/CuisinesIndex.vue";
 import CuisinesShow from "../views/CuisinesShow.vue";
 import Dashboard from "../views/Dashboard.vue";
 import MenuItemsIndex from "../views/MenuItemsIndex.vue";
-// import MenuItemsShow from "../views/MenuItemsShow.vue";
+import MenuItemsShow from "../views/MenuItemsShow.vue";
 import RestaurantsIndex from "../views/RestaurantsIndex.vue";
-// import RestaurantsShow from "../views/RestaurantsShow.vue";
+import RestaurantsShow from "../views/RestaurantsShow.vue";
 
 
 Vue.use(VueRouter)
@@ -38,8 +38,8 @@ Vue.use(VueRouter)
   { path: "/cuisines/:id", name: "cuisines-show", component: CuisinesShow },
   { path: "/dashboard", name: "dashboard", component: Dashboard },
   { path: "/menu-items", name: "menu-items", component: MenuItemsIndex },
-  // { path: "/menu-items/:id", name: "menu-items-show", component: MenuItemsShow },
-  // { path: "/restaurants/:id", name: "restaurants-show", component: RestaurantsShow },
+  { path: "/menu-items/:id", name: "menu-items-show", component: MenuItemsShow },
+  { path: "/restaurants/:id", name: "restaurants-show", component: RestaurantsShow },
   { path: "/restaurants", name: "restaurants", component: RestaurantsIndex }
 ];
 

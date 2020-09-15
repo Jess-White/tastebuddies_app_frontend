@@ -5,7 +5,7 @@
        <div class="col">
         <h4>Name: {{menu_item.name}}</h4>
         <h4>Description: {{menu_item.description}}</h4>
-        <h4>Image URL: {{menu_item.image_url}}</h4>
+        <img :src="menu_item.image_url">
         <h4>Restaurant ID: {{menu_item.restaurant_id}}</h4>
        </div>
        <div>
@@ -87,8 +87,7 @@ var axios = require('axios');
           name: "",
           description: "",
           image_url: "",
-          restaurant_id: "",
-          
+          restaurant_id: ""
         },
         errors: [],
         showEditMenuItemForm: false
@@ -98,7 +97,8 @@ var axios = require('axios');
       axios 
         .get("/menu_items/" + this.$route.params.id)
         .then(response => {
-          this.menu_items = response.data
+          console.log(response.data[0])
+          this.menu_item = response.data[0]
         });
     },
     methods: {

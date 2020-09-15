@@ -4,10 +4,10 @@
      <div class="row">
        <div class="col">
         <h4>Name: {{restaurant.name}}</h4>
-        <h4>Address: {{restaurant.description}}</h4>
-        <h4>Phone Number: {{restaurant.image_url}}</h4>
-        <h4>Website: {{restaurant.restaurant_id}}</h4>
-        <h4>Image URL: {{restaurant.image_url}}</h4>
+        <h4>Address: {{restaurant.address}}</h4>
+        <h4>Phone Number: {{restaurant.phone_number}}</h4>
+        <h4>Website: {{restaurant.website}}</h4>
+        <img :src="restaurant.image_url" >
         <h4>Cuisine ID: {{restaurant.cuisine_id}}</h4>
        </div>
        <div>
@@ -74,7 +74,7 @@
 
 
                         <input class="btn btn-info m-2" type="submit" value="Save">
-                        <button class="btn btn-info m-2" v-on:click="destroyMenuItem()">Delete</button>
+                        <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
                       </form>
 
                     </div>
@@ -94,7 +94,7 @@ var axios = require('axios');
   export default {
     data: function() {
       return {
-        menu_item: {
+        restaurant: {
           id: "",
           name: "",
           address: "",
@@ -102,7 +102,6 @@ var axios = require('axios');
           website: "",
           image_url: "",
           cuisine_id: ""
-          
         },
         errors: [],
         showEditRestaurantForm: false
@@ -112,18 +111,20 @@ var axios = require('axios');
       axios 
         .get("/restaurants/" + this.$route.params.id)
         .then(response => {
-          this.restaurants = response.data
+          console.log(response.data[0])
+          this.restaurant = response.data[0]
         });
+
     },
     methods: {
-      destroyMenuItem: function() {
+      destroyRestaurant: function() {
         axios
           .delete("/restaurants/" + this.$route.params.id)
           .then(response => {
             this.$router.push("/restaurants");
           });
       },
-    updateMenuItem: function() {
+    updateRestaurant: function() {
       var clientParams = {
         name: this.restaurant.name,
         address: this.restaurant.address,
