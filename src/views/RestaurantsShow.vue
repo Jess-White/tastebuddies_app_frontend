@@ -74,7 +74,7 @@
 
 
                         <input class="btn btn-info m-2" type="submit" value="Save">
-                        <button class="btn btn-info m-2" v-on:click="destroyMenuItem()">Delete</button>
+                        <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
                       </form>
 
                     </div>
@@ -94,7 +94,7 @@ var axios = require('axios');
   export default {
     data: function() {
       return {
-        menu_item: {
+        restaurant: {
           id: "",
           name: "",
           address: "",
@@ -116,14 +116,14 @@ var axios = require('axios');
         });
     },
     methods: {
-      destroyMenuItem: function() {
+      destroyRestaurant: function() {
         axios
           .delete("/restaurants/" + this.$route.params.id)
           .then(response => {
             this.$router.push("/restaurants");
           });
       },
-    updateMenuItem: function() {
+    updateRestaurant: function() {
       var clientParams = {
         name: this.restaurant.name,
         address: this.restaurant.address,
