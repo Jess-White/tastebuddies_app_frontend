@@ -39,7 +39,13 @@
 
         <div class="form-group">
           <label>Cuisine ID </label>
-          <input class="form-control" type="text" v-model="cuisine_id">
+          <!-- <input class="form-control" type="text" v-model="cuisine_id"> -->
+          <select v-model="cuisine_id" >
+            <option value="">Pick a cuisine</option>
+            <option v-bind:value="cuisine.id" v-for="cuisine in cuisines">
+              {{cuisine.name}}
+            </option>
+          </select>
         </div>
 
         <input class="btn btn-info" type="submit" value="Add New Restaurant">
@@ -124,6 +130,7 @@ export default {
   data: function () {
     return {
       restaurants: [],
+      cuisines: [],
       id: "",
       name: "",
       address: "",
@@ -138,6 +145,9 @@ export default {
   created: function () {
     axios.get("/restaurants/").then((response) => {
       this.restaurants = response.data;
+    });
+    axios.get("/cuisines/").then((response) => {
+      this.cuisines = response.data;
     });
   },
   methods: {
@@ -154,7 +164,10 @@ export default {
       axios
         .post("/restaurants/", clientParams)
         .then((response) => {
-          this.$router.push("/restaurants");
+          // this.$router.push("/restaurants/");
+          // this.restaurants.push(results.rows[0].id);
+          console.log(response);
+
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
