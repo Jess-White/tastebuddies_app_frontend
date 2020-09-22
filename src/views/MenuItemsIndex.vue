@@ -116,7 +116,7 @@ export default {
     showEditMenuItemsForm: false;
   },
   created: function () {
-    axios.get("/menu-items/").then((response) => {
+    axios.get("/menu_items/").then((response) => {
       this.menu_items = response.data;
     });
   },
