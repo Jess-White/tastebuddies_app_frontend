@@ -10,7 +10,7 @@
           <router-link v-bind:to="'/cuisines/' + cuisine.id">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-name">{{cuisine.type}}</h5>
+                <h5 class="card-name">{{cuisine.name}}</h5>
               </div>
             </div>
           </router-link>
@@ -33,12 +33,13 @@ export default {
     return {
       cuisines: [],
       id: "",
-      type: "",
+      name: "",
       errors: [],
     }
   },
   created: function () {
     axios.get("/cuisines/").then((response) => {
+      console.log(response.data);
       this.cuisines = response.data;
     });
   },
