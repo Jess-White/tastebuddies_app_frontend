@@ -4,18 +4,18 @@
     <div>
 
     <div class="container">
-      <h1>Cuisines</h1>
+      <h1>Tastebuddies</h1>
       <div class="row">
         <div class="col" v-for="cuisine in cuisines">
-          <router-link v-bind:to="'/cuisines/' + cuisine.id">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-name">{{cuisine.name}}</h5>
-              </div>
-            </div>
-          </router-link>
+          <div class="form-check">
+            <label id="text" class="form-check-label" :name="cuisine">
+              <input id="myCheck" class="form-check-input" type="checkbox" aria-label="Checkbox for following text input" v-on:click="getCuisineById()">
+              {{ cuisine.name }}
+            </label>
+          </div>
         </div>
       </div>
+      <button type="button" class="btn btn-success">GO!</button>
     </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
 var axios = require("axios");
 
 export default {
-  data: function () {
+  data() {
     return {
       cuisines: [],
       id: "",
@@ -44,6 +44,20 @@ export default {
     });
   },
   methods: {
+    getCuisineById() {
+      var checkBox = document.getElementById("myCheck")
+      var cuisine = document.getElementById("text")
+      // console.log(document.getElementById("text").innerHTML)
+      console.log(cuisine);
+      const checkedCuisines = [];
+
+      // if (checkBox.checked == true) {
+      //   checkedCuisines.push()
+      // }
+    },
+    pickedCuisines() {
+
+    }
   },
 };
 </script>
