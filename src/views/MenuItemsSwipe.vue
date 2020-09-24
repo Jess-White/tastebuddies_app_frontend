@@ -1,9 +1,9 @@
 <template>
-  <div class="menu_items-show">
+  <div class="menu_items_show">
 
      <div class="row">
        <div class="col">
-        <img :src="menu_item.image_url">
+        <img :src="randomMenuItem.image_url">
        </div>
        <div>
         </div>
@@ -19,7 +19,7 @@ var axios = require('axios');
   export default {
     data: function() {
       return {
-        menu_item: {
+        randomMenuItem: {
           id: "",
           image_url: ""
         },
@@ -28,10 +28,11 @@ var axios = require('axios');
     },
     created: function() {
       axios 
-        .get("/menu_items/" + this.$route.params.id)
+        .get("/menu_items/")
         .then(response => {
-          console.log(response.data[0])
-          this.menu_item = response.data[0]
+
+          this.randomMenuItem = response.data[Math.floor(Math.random() * response.data.length)]
+          console.log(this.randomMenuItem)
         });
     }
 };

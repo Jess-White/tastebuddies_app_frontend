@@ -5,17 +5,24 @@
 
     <div class="container">
       <h1>Tastebuddies</h1>
-      <div class="row">
-        <div class="col" v-for="cuisine in cuisines">
-          <div class="form-check">
-            <label id="text" class="form-check-label" :name="cuisine">
-              <input id="myCheck" class="form-check-input" type="checkbox" aria-label="Checkbox for following text input" v-on:click="getCuisineById()">
-              {{ cuisine.name }}
+        <ul>
+          <div v-for="cuisine in cuisines">
+          <div class="form-check" >
+            <label id="text" class="form-check-label">
+              <input 
+                id="myCheck" 
+                class="form-check-input" 
+                type="checkbox" 
+                v-on:click="getCuisine()"
+                :value="cuisine.name">
+                {{ cuisine.name }}
             </label>
           </div>
-        </div>
-      </div>
-      <button type="button" class="btn btn-success">GO!</button>
+          </div>
+          
+          <button type="button" class="btn btn-success">GO!</button>
+        </ul>
+
     </div>
     </div>
   </div>
@@ -39,14 +46,13 @@ export default {
   },
   created: function () {
     axios.get("/cuisines/").then((response) => {
-      console.log(response.data);
       this.cuisines = response.data;
     });
   },
   methods: {
-    getCuisineById() {
+    getCuisine() {
       var checkBox = document.getElementById("myCheck")
-      var cuisine = document.getElementById("text")
+      var cuisine = this
       // console.log(document.getElementById("text").innerHTML)
       console.log(cuisine);
       const checkedCuisines = [];
