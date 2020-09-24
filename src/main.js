@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import axios from "axios";
 
+import 'vue-swipe-actions/dist/vue-swipe-actions.css';
+
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
