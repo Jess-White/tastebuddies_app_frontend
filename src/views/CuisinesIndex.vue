@@ -3,20 +3,30 @@
 
     <div>
 
-    <div class="container">
-      <h1>Tastebuddies</h1>
-      <div class="row">
-        <div class="col" v-for="cuisine in cuisines">
-          <div class="form-check">
-            <label id="text" class="form-check-label" :name="cuisine">
-              <input id="myCheck" class="form-check-input" type="checkbox" aria-label="Checkbox for following text input" v-on:click="getCuisineById()">
-              {{ cuisine.name }}
+      <div class="container" v-if="!formCompleted">
+        <h1>Tastebuddies</h1>
+        <ul>
+          <div v-for="cuisine in cuisines">
+          <div class="form-check" >
+            <label id="text" class="form-check-label">
+              <input 
+                id="myCheck" 
+                class="form-check-input" 
+                type="checkbox" 
+                v-on:change="getCuisine($event)"
+                :value="cuisine.name">
+                {{ cuisine.name }}
             </label>
           </div>
-        </div>
+          </div>
+          
+          <button type="button" class="btn btn-success" v-on:click="formCompleted = true">GO!</button>
+        </ul>
       </div>
-      <button type="button" class="btn btn-success">GO!</button>
-    </div>
+      <div v-else>
+        <MenuItemsSwipe :filteredCuisines="filteredCuisines" />
+        <button v-on:click="formCompleted = false">Back</button>
+      </div>
     </div>
   </div>
 
@@ -26,39 +36,48 @@
 </style>
 
 <script>
+import MenuItemsSwipe from "@/components/MenuItemsSwipe.vue"
 var axios = require("axios");
 
 export default {
+  components: {
+    MenuItemsSwipe
+  },
   data() {
     return {
       cuisines: [],
       id: "",
       name: "",
       errors: [],
+      checkedCuisines: [],
+      formCompleted: false
     }
   },
   created: function () {
     axios.get("/cuisines/").then((response) => {
-      console.log(response.data);
       this.cuisines = response.data;
     });
   },
   methods: {
-    getCuisineById() {
-      var checkBox = document.getElementById("myCheck")
-      var cuisine = document.getElementById("text")
-      // console.log(document.getElementById("text").innerHTML)
-      console.log(cuisine);
-      const checkedCuisines = [];
+    getCuisine(event) {
+      if (event.target.checked) {
+        this.checkedCuisines.push(event.target.value)
+      } else {
+        this.checkedCuisines = this.checkedCuisines.filter(cuisine => {
+          return cuisine !== event.target.value
+        }) 
+      }
 
-      // if (checkBox.checked == true) {
-      //   checkedCuisines.push()
-      // }
-    },
-    pickedCuisines() {
-
+      console.log(this.checkedCuisines)
     }
   },
+  computed: {
+    filteredCuisines() {
+      return this.cuisines.filter(cuisine => {
+         return this.checkedCuisines.includes(cuisine.name)
+      })
+    }
+  }
 };
 </script>
 

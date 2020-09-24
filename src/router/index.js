@@ -42,7 +42,7 @@ Vue.use(VueRouter)
   { path: "/menu_items/:id", name: "menu-items-show", component: MenuItemsShow },
   { path: "/restaurants/:id", name: "restaurants-show", component: RestaurantsShow },
   { path: "/restaurants", name: "restaurants", component: RestaurantsIndex },
-  { path: "/menu_items_swipe/:id", name: "menu-items-swipe", component: MenuItemsSwipe }
+  { path: "/menu_items_swipe/", name: "menu-items-swipe", component: MenuItemsSwipe }
 ];
 
 const router = new VueRouter({

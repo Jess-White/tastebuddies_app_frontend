@@ -25,6 +25,7 @@
       SwipeOut,
       SwipeList
     },
+    props: ["filteredCuisines"],
     data: function() {
       return {
         randomMenuItem: {
@@ -65,6 +66,7 @@
           this.randomMenuItem = response.data[Math.floor(Math.random() * response.data.length)]
           // console.log(this.randomMenuItem)
         });
+      console.log(this.filteredCuisines)
     },
     methods: {
       revealFirstRight() {

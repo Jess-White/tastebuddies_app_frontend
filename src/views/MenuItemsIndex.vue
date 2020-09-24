@@ -37,7 +37,7 @@
     </div>
 
     <div class="container">
-      <h1 >Menu Items</h1>
+      <h1>Menu Items</h1>
       <div class="row">
         <div class="col" v-for="menu_item in menu_items">
           <router-link v-bind:to="'/menu_items/' + menu_item.id">
