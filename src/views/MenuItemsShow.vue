@@ -89,6 +89,9 @@ var axios = require('axios');
           image_url: "",
           restaurant_id: ""
         },
+        restaurant: {
+          website: ""
+        },
         errors: [],
         showEditMenuItemForm: false
       };

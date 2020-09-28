@@ -37,36 +37,13 @@
         image_url: "",
         errors: [],
         enabled: true,
-        mockSwipeList: [
-          {
-            id: 0,
-            title: "Some title",
-            description: "some description"
-          },
-          {
-            id: 1,
-            title: "Some title",
-            description: "some description"
-          },
-          {
-            id: 2,
-            title: "Some title",
-            description: "some description"
-          }
-        ]
       };
     },
     created: function() {
-      axios 
-        .get("/menu_items/")
-        .then(response => {
-          
-          this.menuItems = response.data
-          console.log(this.menuItems)
-          this.randomMenuItem = response.data[Math.floor(Math.random() * response.data.length)]
-          // console.log(this.randomMenuItem)
-        });
-      console.log(this.filteredCuisines)
+
+      const menuItems = this.filteredCuisines
+      // loop through each cuisine object and create new array of restaurant objects, then do the same within those restaurants for menu_items
+      console.log(menuItems)
     },
     methods: {
       revealFirstRight() {
