@@ -25,7 +25,6 @@
       </div>
       <div v-else>
         <MenuItemsSwipe :filteredCuisines="filteredCuisines" />
-        <button v-on:click="formCompleted = false">Back</button>
       </div>
     </div>
   </div>
