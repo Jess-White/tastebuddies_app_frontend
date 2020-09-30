@@ -10,8 +10,13 @@
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
+    "i": "^0.3.6",
+    "interact": "0.0.3",
+    "interact.js": "^1.2.8",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vue-swipe-actions": "^2.0.0-beta.20"

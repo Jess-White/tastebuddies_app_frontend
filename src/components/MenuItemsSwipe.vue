@@ -1,24 +1,40 @@
 <template>
-  <div class="menu_items_show">
+  <!-- <div class="menu_items_show">
     <div class="row">
       <div class="col">
         <img :src="randomMenuItem.image_url">
       </div>
     </div>
-  </div> 
+  </div>  -->
+  <div>
+    <GameCardsStack
+        :cards="filteredImages"
+        @cardAccepted="handleCardAccepted"
+        @cardRejected="handleCardRejected"
+        @cardSkipped="handleCardSkipped"
+        @hideCard="removeCardFromDeck"
+
+      />
+  </div>
+
+
 </template>
 
 <style></style>
 
 <script>
+import GameCardsStack from "./GameCardsStack";
 
 
   export default {
+    components: {
+      GameCardsStack
+    },
     props: ["filteredCuisines"],
     data: function() {
       return {
-        randomMenuItem: {},
         filteredMenuItems: [],
+        filteredImages: [],
         errors: [],
         enabled: true,
       };
@@ -27,6 +43,7 @@
       const filteredCuisines = this.filteredCuisines
       const filteredRestaurants = []
       const filteredMenuItems = []
+      const filteredImages = []
 
       filteredCuisines.forEach(cuisine => {
         cuisine.restaurants.forEach(restaurant => {
@@ -39,7 +56,27 @@
         })
       })
       this.filteredMenuItems = filteredMenuItems
-      this.randomMenuItem = filteredMenuItems[Math.floor(Math.random() * filteredMenuItems.length)]
+
+      this.filteredImages = filteredImages
+
+      filteredMenuItems.forEach(menu_item => {
+        filteredImages.push(menu_item.image_url)
+      })
+      console.log(filteredImages)
+    },
+    methods: {
+      handleCardAccepted() {
+        console.log("handleCardAccepted");
+      },
+      handleCardRejected() {
+        console.log("handleCardRejected");
+        this.filteredImages.shift();
+      },
+      handleCardSkipped() {
+        console.log("handleCardSkipped");
+      },
+      removeCardFromDeck() {
+      }
     }
   }
 </script>
