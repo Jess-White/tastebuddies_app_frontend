@@ -6,8 +6,8 @@
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
+        <label>Username:</label>
+        <input type="text" class="form-control" v-model="username">
       </div>
       <div class="form-group">
         <label>Password:</label>
@@ -24,7 +24,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      email: "",
+      username: "",
       password: "",
       errors: []
     };
@@ -32,20 +32,21 @@ export default {
   methods: {
     submit: function() {
       var params = {
-        email: this.email,
+        username: this.username,
         password: this.password
       };
       axios
-        .post("/api/sessions", params)
+        .post("/login", params)
         .then(response => {
           axios.defaults.headers.common["Authorization"] =
-            "Bearer " + response.data.jwt;
-          localStorage.setItem("jwt", response.data.jwt);
-          this.$router.push("/");
+            "Bearer " + response.data.accessToken;
+          console.log(response.data.accessToken, "HI JWT");
+          localStorage.setItem("jwt", response.data.accessToken);
+          this.$router.push("/cuisines");
         })
         .catch(error => {
-          this.errors = ["Invalid email or password."];
-          this.email = "";
+          this.errors = ["Invalid username or password."];
+          this.username = "";
           this.password = "";
         });
     }

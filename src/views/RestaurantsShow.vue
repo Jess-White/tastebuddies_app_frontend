@@ -9,80 +9,87 @@
         <h4>Website: {{restaurant.website}}</h4>
         <img :src="restaurant.image_url" >
         <h4>Cuisine ID: {{restaurant.cuisine_id}}</h4>
-       </div>
-       <div>
-         <button v-on:click="showEditRestaurantFormMethod()">Edit Restaurant</button>
-          <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
-        </div>
-     </div> 
-
-     <div v-if="showEditRestaurantForm">
-       <div>
-           <div class="container">
-               <div class="row">
-               <div class="col">
-                   <div>
-                       <h4>Edit Restaurant</h4>
-                   </div>
-               </div>
-           </div>
-           </div>
-       </div>
-
-       <div>
-            <button v-on:click="restaurant.showEditRestaurantForm = !restaurant.showEditRestaurantForm">Edit Menu Item</button>
-
-            <div v-if="restaurant.showEditRestaurantForm">
-                  <div class="container">
-                    <div class="row">
-                      <form class="col" v-on:submit.prevent="updateRestaurant()">
-                        <h1>Edit Restaurant</h1>
-                        <ul>
-                          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-                        </ul>
-
-                        <div class="form-group">
-                          <label>Name: </label>
-                          <input class="form-control" type="text" v-model="restaurant.name">
-                        </div>
-
-                        <div class="form-group">
-                          <label>Address: </label>
-                          <input class="form-control" type="text" v-model="restaurant.address">
-                        </div>
-
-                        <div class="form-group">
-                          <label>Phone Number: </label>
-                          <input class="form-control" type="text" v-model="restaurant.phone_number">
-                        </div>
-
-
-                        <div class="form-group">
-                          <label>Website: </label>
-                          <input class="form-control" type="text" v-model="restaurant.website">
-                        </div>
-
-                        <div class="form-group">
-                          <label>Image URL: </label>
-                          <input class="form-control" type="text" v-model="restaurant.image_url">
-                        </div>
-
-                        <div class="form-group">
-                          <label>Cuisine ID: </label>
-                          <input class="form-control" type="text" v-model="restaurant.cuisine_id">
-                        </div>
-
-
-                        <input class="btn btn-info m-2" type="submit" value="Save">
-                        <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
-                      </form>
-
-                    </div>
-                  </div>
+        <div class="col" v-for="menu_item in menu_items">
+          <div class="card">
+            <div class="card-body text-info">
+                <img :src="menu_item.image_url" alt="">
             </div>
           </div>
+        </div>
+       </div>
+       <!-- <div>
+         <button v-on:click="showEditRestaurantFormMethod()">Edit Restaurant</button>
+          <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
+        </div> -->
+     </div> 
 
-</div>
+     <!-- <div v-if="showEditRestaurantForm">
+        <div>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div>
+                  <h4>Edit Restaurant</h4>
+                </div>
+               </div>
+            </div>
+          </div>
+        </div> -->
+
+       <!-- <div>
+          <button v-on:click="restaurant.showEditRestaurantForm = !restaurant.showEditRestaurantForm">Edit Menu Item</button>
+
+          <div v-if="restaurant.showEditRestaurantForm">
+            <div class="container">
+              <div class="row">
+                <form class="col" v-on:submit.prevent="updateRestaurant()">
+                  <h1>Edit Restaurant</h1>
+                  <ul>
+                    <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                  </ul>
+
+                  <div class="form-group">
+                    <label>Name: </label>
+                    <input class="form-control" type="text" v-model="restaurant.name">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Address: </label>
+                    <input class="form-control" type="text" v-model="restaurant.address">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Phone Number: </label>
+                    <input class="form-control" type="text" v-model="restaurant.phone_number">
+                  </div>
+
+
+                  <div class="form-group">
+                    <label>Website: </label>
+                    <input class="form-control" type="text" v-model="restaurant.website">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Image URL: </label>
+                    <input class="form-control" type="text" v-model="restaurant.image_url">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Cuisine ID: </label>
+                    <input class="form-control" type="text" v-model="restaurant.cuisine_id">
+                  </div>
+
+
+                  <input class="btn btn-info m-2" type="submit" value="Save">
+                  <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+</div> -->
 </div>
 </template>
 
@@ -103,6 +110,7 @@ var axios = require('axios');
           image_url: "",
           cuisine_id: ""
         },
+        menu_items: [],
         errors: [],
         showEditRestaurantForm: false
       };
@@ -111,8 +119,9 @@ var axios = require('axios');
       axios 
         .get("/restaurants/" + this.$route.params.id)
         .then(response => {
-          console.log(response.data[0])
-          this.restaurant = response.data[0]
+          console.log(response.data.menu_items)
+          this.restaurant = response.data.restaurants[0]
+          this.menu_items = response.data.menu_items
         });
 
     },
