@@ -1,11 +1,4 @@
 <template>
-  <!-- <div class="menu_items_show">
-    <div class="row">
-      <div class="col">
-        <img :src="randomMenuItem.image_url">
-      </div>
-    </div>
-  </div>  -->
   <div>
     <GameCardsStack
         :cards="filteredImages"
@@ -15,15 +8,16 @@
         @hideCard="removeCardFromDeck"
 
       />
+        <!-- get the image_url as an event when cardAccepted -->
+    <button @click="goBack">Go Back!</button>
   </div>
-
-
 </template>
 
 <style></style>
 
 <script>
 import GameCardsStack from "./GameCardsStack";
+import axios from 'axios';
 
 
   export default {
@@ -37,6 +31,8 @@ import GameCardsStack from "./GameCardsStack";
         filteredImages: [],
         errors: [],
         enabled: true,
+        rejectedImages: [],
+
       };
     },
     created: function() {
@@ -65,17 +61,33 @@ import GameCardsStack from "./GameCardsStack";
       console.log(filteredImages)
     },
     methods: {
-      handleCardAccepted() {
-        console.log("handleCardAccepted");
+      handleCardAccepted(card) {
+
+        const menu_item = this.filteredMenuItems.find(menu_item => {
+          return menu_item.image_url === card;
+        })
+        this.$router.push({
+          path: `restaurants/${menu_item.restaurant_id} `
+        })
+
+        // axios.get("'/restaurants/' + restaurant.id").then((response) => {
+          // this.restaurants = response.data;
+
+        // window.location.href = "."
       },
-      handleCardRejected() {
+      handleCardRejected(card) {
         console.log("handleCardRejected");
-        this.filteredImages.shift();
+        this.filteredImages = this.filteredImages.filter(image => card !== image)
+        this.rejectedImages.push(card);
       },
       handleCardSkipped() {
         console.log("handleCardSkipped");
       },
       removeCardFromDeck() {
+        this.filteredImages.shift();
+      },
+      goBack() {
+        this.filteredImages.unshift(this.rejectedImages.pop());
       }
     }
   }

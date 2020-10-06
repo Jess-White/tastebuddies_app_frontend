@@ -10,7 +10,6 @@
     :style="{ transform: transformString }"
   >
     <img :src="card" style="width: 200px; height: 300px;">
-
   </div>
 </template>
 
