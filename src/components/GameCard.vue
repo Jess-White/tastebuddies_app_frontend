@@ -166,7 +166,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/index.scss";
+@import "src/styles/index.scss";
 
 $cardsTotal: 3;
 $cardsWidth: 300px;
