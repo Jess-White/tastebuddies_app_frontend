@@ -9,13 +9,7 @@
         <h4>Website: {{restaurant.website}}</h4>
         <img :src="restaurant.image_url" >
         <h4>Cuisine ID: {{restaurant.cuisine_id}}</h4>
-        <div class="col" v-for="menu_item in menu_items">
-          <div class="card">
-            <div class="card-body text-info">
-                <img :src="menu_item.image_url" alt="">
-            </div>
-          </div>
-        </div>
+        <Carousel :menu_items="menu_items"/>
        </div>
        <!-- <div>
          <button v-on:click="showEditRestaurantFormMethod()">Edit Restaurant</button>
@@ -96,9 +90,13 @@
 <style></style>
 
 <script>
+import Carousel from "@/components/Carousel.vue"
 var axios = require('axios');
 
   export default {
+    components: {
+      Carousel
+    },
     data: function() {
       return {
         restaurant: {
@@ -119,7 +117,7 @@ var axios = require('axios');
       axios 
         .get("/restaurants/" + this.$route.params.id)
         .then(response => {
-          console.log(response.data.menu_items)
+
           this.restaurant = response.data.restaurants[0]
           this.menu_items = response.data.menu_items
         });
