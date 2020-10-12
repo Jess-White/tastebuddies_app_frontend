@@ -2,20 +2,20 @@
   <div class="cuisines-index">
 
     <div>
-
       <div class="container" v-if="!formCompleted">
         <h1>Tastebuddies</h1>
         <ul>
-          <div v-for="cuisine in cuisines">
+          <div  v-for="cuisine in cuisines">
             <div class="form-check" >
-              <label id="text" class="form-check-label">
+              <label id="text" class="form-check-label" >
                 <div>
                   <input 
                     id="myCheck" 
                     class="custom-checkbox" 
                     type="checkbox" 
                     v-on:change="getCuisine($event)"
-                    :value="cuisine.name">
+                    :value="cuisine.name"
+                  >
                 </div>
                 <div>
                   {{ cuisine.name }}

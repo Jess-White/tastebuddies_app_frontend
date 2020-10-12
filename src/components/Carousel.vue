@@ -9,7 +9,12 @@
 				<!-- Carousel indicators -->
 				<ol class="carousel-indicators ">
 					<li data-target="#myCarousel" data-slide-to="0" class="active "></li>
-          <li data-target="#myCarousel" data-slide-to="1"   ></li>
+          <li 
+						data-target="#myCarousel" 
+						data-slide-to="1" 
+						style="width: 10px; height: 10px;"  
+					>
+					</li>
 				</ol> 
 
 				<!-- Wrapper for carousel items -->
@@ -155,9 +160,26 @@ h2 span {
   background-color: #555;
 }
 
-.carousel-indicators li {
-  width: 10px;
-  height: 10px;
-}
+// .carousel-indicators li {
+//   width: 10px;
+//   height: 10px;
+// }
+
+// .carousel-indicators li {
+//   box-sizing: content-box;
+//   flex: 0 1 auto;
+//   width: 10px;
+//   height: 10px;
+//   margin-right: 3px;
+//   margin-left: 3px;
+//   text-indent: -999px;
+//   cursor: pointer;
+//   background-color: #fff;
+//   background-clip: padding-box;
+//   border-top: 10px solid transparent;
+//   border-bottom: 10px solid transparent;
+//   opacity: 0.5;
+//   transition: opacity 0.6s ease;
+// }
 </style>
                                		
