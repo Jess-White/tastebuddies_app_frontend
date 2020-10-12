@@ -7,17 +7,21 @@
         <h1>Tastebuddies</h1>
         <ul>
           <div v-for="cuisine in cuisines">
-          <div class="form-check" >
-            <label id="text" class="form-check-label">
-              <input 
-                id="myCheck" 
-                class="form-check-input" 
-                type="checkbox" 
-                v-on:change="getCuisine($event)"
-                :value="cuisine.name">
-                {{ cuisine.name }}
-            </label>
-          </div>
+            <div class="form-check" >
+              <label id="text" class="form-check-label">
+                <div>
+                  <input 
+                    id="myCheck" 
+                    class="custom-checkbox" 
+                    type="checkbox" 
+                    v-on:change="getCuisine($event)"
+                    :value="cuisine.name">
+                </div>
+                <div>
+                  {{ cuisine.name }}
+                </div>
+              </label>
+            </div>
           </div>
           
           <button type="button" class="btn btn-success" v-on:click="formCompleted = true">GO!</button>
@@ -35,12 +39,12 @@
 </style>
 
 <script>
-import MenuItemsSwipe from "@/components/MenuItemsSwipe.vue"
+import MenuItemsSwipe from "@/components/MenuItemsSwipe.vue";
 var axios = require("axios");
 
 export default {
   components: {
-    MenuItemsSwipe
+    MenuItemsSwipe,
   },
   data() {
     return {
@@ -49,8 +53,8 @@ export default {
       name: "",
       errors: [],
       checkedCuisines: [],
-      formCompleted: false
-    }
+      formCompleted: false,
+    };
   },
   created: function () {
     axios.get("/cuisines/").then((response) => {
@@ -60,22 +64,23 @@ export default {
   methods: {
     getCuisine(event) {
       if (event.target.checked) {
-        this.checkedCuisines.push(event.target.value)
+        this.checkedCuisines.push(event.target.value);
       } else {
-        this.checkedCuisines = this.checkedCuisines.filter(cuisine => {
-          return cuisine !== event.target.value
-        }) 
+        this.checkedCuisines = this.checkedCuisines.filter((cuisine) => {
+          return cuisine !== event.target.value;
+        });
       }
-    }
+    },
   },
   computed: {
     filteredCuisines() {
-      return this.cuisines.filter(cuisine => {
-         return this.checkedCuisines.includes(cuisine.name)
-      })
-    }
-  }
+      return this.cuisines.filter((cuisine) => {
+        return this.checkedCuisines.includes(cuisine.name);
+      });
+    },
+  },
 };
 </script>
 
 
+// class="form-check-input checkmark"

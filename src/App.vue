@@ -15,6 +15,9 @@
 </template>
 
 <style>
+body {
+  background-image: url("/paper_2.png");
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,5 +40,4 @@
 }
 
 /* @import "./styles/mixins.scss"; */
-
 </style>

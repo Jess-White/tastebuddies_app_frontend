@@ -13,34 +13,30 @@
 <style></style>
 
 <script>
-var axios = require('axios');
+var axios = require("axios");
 
-  export default {
-    data: function() {
-      return {
-        cuisine: {
-          id: "",
-          name: "",
-          errors: [],
-        },
-      };
+export default {
+  data: function () {
+    return {
+      cuisine: {
+        id: "",
+        name: "",
+        errors: [],
+      },
+    };
+  },
+  created: function () {
+    axios.get("/cuisines/" + this.$route.params.id).then((response) => {
+      this.cuisine = response.data[0];
+      console.log(this.cuisine);
+    });
+  },
+  watch: {
+    $route: function () {
+      axios.get("/cuisines/" + this.$route.params.id).then((response) => {
+        this.cuisines = response.data;
+      });
     },
-    created: function() {
-      axios 
-        .get("/cuisines/" + this.$route.params.id)
-        .then(response => {
-          this.cuisine = response.data[0]
-          console.log(this.cuisine)
-        });
-    },
-    watch: {
-      $route: function() {
-        axios
-        .get("/cuisines/" + this.$route.params.id)
-        .then(response => {
-          this.cuisines = response.data;
-        });
-      }  
-    }
+  },
 };
 </script>
