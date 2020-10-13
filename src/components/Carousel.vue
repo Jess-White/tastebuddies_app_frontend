@@ -8,7 +8,7 @@
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 				<!-- Carousel indicators -->
 				<ol class="carousel-indicators ">
-					<li data-target="#myCarousel" data-slide-to="0" class="active "></li>
+					<li data-target="#myCarousel" data-slide-to="0"  style="width: 10px; height: 10px;" class="active "></li>
           <li 
 						data-target="#myCarousel" 
 						data-slide-to="1" 
