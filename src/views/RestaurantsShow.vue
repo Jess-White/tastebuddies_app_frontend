@@ -3,10 +3,10 @@
 
     <div class="row">
       <div class="col">
-        <h4>Name: {{restaurant.name}}</h4>
-        <h4>Address: {{restaurant.address}}</h4>
-        <h4>Phone Number: {{restaurant.phone_number}}</h4>
-        <h4>{{restaurant.website}}</h4>
+        <h4> {{restaurant.name}}</h4>
+        <h4> {{restaurant.address}}</h4>
+        <h4>{{restaurant.phone_number}}</h4>
+        <a :href="`${restaurant.website}`"><h4>Website</h4></a>
         <img class="img-restaurant" :src="restaurant.image_url" >
         <h4>Cuisine ID: {{restaurant.cuisine_id}}</h4>
         <Carousel :menu_items="menu_items"/>

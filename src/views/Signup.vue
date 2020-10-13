@@ -5,23 +5,21 @@
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-      <div class="form-group">
-        <label>Name:</label> 
-        <input type="text" class="form-control" v-model="username">
+      <div class="row pt-5 mx-auto" >
+        <div class="col-8 form-group mx-auto">
+          <label>Name:</label> 
+          <input type="text" class="form-control" v-model="username">
+        </div>
+        <div class="col-8 form-group mx-auto">
+          <label>Email:</label>
+          <input type="email" class="form-control" v-model="email">
+        </div>
+        <div class="col-8 form-group mx-auto">
+          <label>Password:</label>
+          <input type="password" class="form-control" v-model="password">
+        </div>
       </div>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
-      </div>
-      <!-- <div class="form-group">
-        <label>Password confirmation:</label>
-        <input type="password" class="form-control" v-model="passwordConfirmation">
-      </div> -->
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" class="btn btn-secondary" value="Submit">
     </form>
   </div>
 </template>
@@ -30,31 +28,31 @@
 import axios from "axios";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       username: "",
       email: "",
       password: "",
       // passwordConfirmation: "",
-      errors: []
+      errors: [],
     };
   },
   methods: {
-    submit: function() {
+    submit: function () {
       var params = {
         username: this.username,
         email: this.email,
-        password_digest: this.password
+        password_digest: this.password,
       };
       axios
         .post("/users", params)
-        .then(response => {
+        .then((response) => {
           this.$router.push("/login");
         })
-        .catch(error => {
+        .catch((error) => {
           this.errors = error.response.data.errors;
         });
-    }
-  }
+    },
+  },
 };
 </script>
