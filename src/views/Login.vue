@@ -1,19 +1,22 @@
 <template>
-  <div class="login">
+  <div class="login container">
     <form v-on:submit.prevent="submit()">
       <h1>Login</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-      <div class="form-group">
-        <label>Username:</label>
-        <input type="text" class="form-control" v-model="username">
+
+      <div class="row pt-5 mx-auto" >
+        <div class="col-8 form-group mx-auto">
+          <label>Username:</label>
+          <input type="text" class="form-control" v-model="username">
+        </div>
+        <div class="col-8 form-group mx-auto">
+          <label>Password:</label>
+          <input type="password" class="form-control" v-model="password">
+        </div>
       </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
-      </div>
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" class="btn btn-secondary" value="Submit">
     </form>
   </div>
 </template>
@@ -22,34 +25,34 @@
 import axios from "axios";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       username: "",
       password: "",
-      errors: []
+      errors: [],
     };
   },
   methods: {
-    submit: function() {
+    submit: function () {
       var params = {
         username: this.username,
-        password: this.password
+        password: this.password,
       };
       axios
         .post("/login", params)
-        .then(response => {
+        .then((response) => {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.accessToken;
           console.log(response.data.accessToken, "HI JWT");
           localStorage.setItem("jwt", response.data.accessToken);
           this.$router.push("/cuisines");
         })
-        .catch(error => {
+        .catch((error) => {
           this.errors = ["Invalid username or password."];
           this.username = "";
           this.password = "";
         });
-    }
-  }
+    },
+  },
 };
 </script>

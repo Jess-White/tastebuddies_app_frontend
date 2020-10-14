@@ -1,16 +1,17 @@
 <template>
   <div class="restaurants-show">
 
-     <div class="row">
-       <div class="col">
-        <h4>Name: {{restaurant.name}}</h4>
-        <h4>Address: {{restaurant.address}}</h4>
-        <h4>Phone Number: {{restaurant.phone_number}}</h4>
-        <h4>Website: {{restaurant.website}}</h4>
-        <img :src="restaurant.image_url" >
+    <div class="row">
+      <div class="col">
+        <h4> {{restaurant.name}}</h4>
+        <h4> {{restaurant.address}}</h4>
+        <h4>{{restaurant.phone_number}}</h4>
+        <a :href="`${restaurant.website}`"><h4>Website</h4></a>
+        <img class="img-restaurant" :src="restaurant.image_url" >
         <h4>Cuisine ID: {{restaurant.cuisine_id}}</h4>
         <Carousel :menu_items="menu_items"/>
-       </div>
+      </div>
+     
        <!-- <div>
          <button v-on:click="showEditRestaurantFormMethod()">Edit Restaurant</button>
           <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
@@ -87,88 +88,90 @@
 </div>
 </template>
 
-<style></style>
+<style>
+body {
+  background-image: url("/paper_2.png");
+}
+
+.img-restaurant {
+  width: 450px;
+  height: 450px;
+}
+</style>
 
 <script>
-import Carousel from "@/components/Carousel.vue"
-var axios = require('axios');
+import Carousel from "@/components/Carousel.vue";
+var axios = require("axios");
 
-  export default {
-    components: {
-      Carousel
-    },
-    data: function() {
-      return {
-        restaurant: {
-          id: "",
-          name: "",
-          address: "",
-          phone_number: "",
-          website: "",
-          image_url: "",
-          cuisine_id: ""
-        },
-        menu_items: [],
-        errors: [],
-        showEditRestaurantForm: false
-      };
-    },
-    created: function() {
-      axios 
-        .get("/restaurants/" + this.$route.params.id)
-        .then(response => {
-
-          this.restaurant = response.data.restaurants[0]
-          this.menu_items = response.data.menu_items
-        });
-
-    },
-    methods: {
-      destroyRestaurant: function() {
-        axios
-          .delete("/restaurants/" + this.$route.params.id)
-          .then(response => {
-            this.$router.push("/restaurants");
-          });
+export default {
+  components: {
+    Carousel,
+  },
+  data: function () {
+    return {
+      restaurant: {
+        id: "",
+        name: "",
+        address: "",
+        phone_number: "",
+        website: "",
+        image_url: "",
+        cuisine_id: "",
       },
-    updateRestaurant: function() {
+      menu_items: [],
+      errors: [],
+      showEditRestaurantForm: false,
+    };
+  },
+  created: function () {
+    axios.get("/restaurants/" + this.$route.params.id).then((response) => {
+      this.restaurant = response.data.restaurants[0];
+      this.menu_items = response.data.menu_items;
+    });
+  },
+  methods: {
+    destroyRestaurant: function () {
+      axios.delete("/restaurants/" + this.$route.params.id).then((response) => {
+        this.$router.push("/restaurants");
+      });
+    },
+    updateRestaurant: function () {
       var clientParams = {
         name: this.restaurant.name,
         address: this.restaurant.address,
         phone_number: this.restaurant.phone_number,
         website: this.restaurant.website,
         image_url: this.restaurant.image_url,
-        cuisine_id: this.restaurant.cuisine_id
+        cuisine_id: this.restaurant.cuisine_id,
       };
 
-    const jwt = localStorage.getItem("jwt")
-    axios
-    .patch("/restaurants/" + this.$route.params.id, clientParams, {
-      headers: {
-        "Authorization": `Bearer ${jwt}`
-      }
-    })
-    .then(response => {
-      this.$router.push("/restaurants/");
-    }).catch(error => {
-      if (error.response.status === 401) {
-        this.$router.push("/login/");
-      }
-      this.errors = error.response.data.errors;
-    });
+      const jwt = localStorage.getItem("jwt");
+      axios
+        .patch("/restaurants/" + this.$route.params.id, clientParams, {
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+        })
+        .then((response) => {
+          this.$router.push("/restaurants/");
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            this.$router.push("/login/");
+          }
+          this.errors = error.response.data.errors;
+        });
     },
     showEditRestaurantFormMethod: function () {
       this.showEditRestaurantForm = !this.showEditRestaurantForm;
-    }
+    },
   },
-    watch: {
-      $route: function() {
-        axios
-        .get("/restaurants/" + this.$route.params.id)
-        .then(response => {
-          this.restaurants = response.data;
-        });
-      }  
-    }
+  watch: {
+    $route: function () {
+      axios.get("/restaurants/" + this.$route.params.id).then((response) => {
+        this.restaurants = response.data;
+      });
+    },
+  },
 };
 </script>

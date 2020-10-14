@@ -9,8 +9,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-
-axios.defaults.baseURL = 
+axios.defaults.baseURL =
   process.env.NODE_ENV === "development" ? "http://localhost:3000" : "/";
 
 var jwt = localStorage.getItem("jwt");

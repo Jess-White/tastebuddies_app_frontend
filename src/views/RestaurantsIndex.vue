@@ -5,7 +5,7 @@
       
       <div class="row"></div>
       <form class="col"
-      v-on:submit.prevent="createRestaurant()">
+        v-on:submit.prevent="createRestaurant()">
         <h1>New Restaurant</h1>
 
         <ul>
@@ -158,7 +158,7 @@ export default {
         phone_number: this.phone_number,
         website: this.website,
         image_url: this.image_url,
-        cuisine_id: this.cuisine_id
+        cuisine_id: this.cuisine_id,
       };
 
       axios
@@ -167,7 +167,6 @@ export default {
           // this.$router.push("/restaurants/");
           // this.restaurants.push(results.rows[0].id);
           console.log(response);
-
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
@@ -175,11 +174,9 @@ export default {
         });
     },
     destroyRestaurant: function () {
-      axios
-        .delete("/restaurants/" + this.$route.params.id)
-        .then((response) => {
-          this.$router.push("/restaurants/");
-        });
+      axios.delete("/restaurants/" + this.$route.params.id).then((response) => {
+        this.$router.push("/restaurants/");
+      });
     },
     updateRestaurant: function () {
       var clientParams = {
@@ -188,7 +185,7 @@ export default {
         phone_number: this.phone_number,
         website: this.website,
         image_url: this.image_url,
-        cuisine_id: this.cuisine_id
+        cuisine_id: this.cuisine_id,
       };
 
       const jwt = localStorage.getItem("jwt");
