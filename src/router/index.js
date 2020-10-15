@@ -17,11 +17,11 @@ import MenuItemsSwipe from "../views/MenuItemsSwipe.vue";
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'cuisines',
+    component: CuisinesIndex
   },
   {
     path: '/about',

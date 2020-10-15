@@ -5,7 +5,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">TasteBuddies</a>
+      <a href="/"><img  class="logo-img" src="/tastebuddies.png" alt="" /></a>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -35,13 +35,15 @@
   </div>
 </template>
 
-<style>
+<style >
 .nav-text {
   font-size: 18px;
   font-weight: bold;
 }
 body {
-  background-image: url("/paper_2.png");
+  /* background-image: url("/paper_2.png");
+   */
+  background-image: url("https://cdn.wallpapersafari.com/84/52/7BbTQc.jpg");
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -50,19 +52,9 @@ body {
   text-align: center;
   color: #2c3e50;
 }
-/* 
-#nav {
-  padding: 30px;
+.logo-img {
+  width: 35%;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-} */
 
 /* @import "./styles/mixins.scss"; */
 </style>
