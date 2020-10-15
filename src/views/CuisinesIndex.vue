@@ -1,13 +1,15 @@
 <template>
   <div class="cuisines-index">
     <div class="container">
-        <h1 class="display-4" style="font-weight: bold">Tastebuddies</h1>
+        <h1 class="display-4" style="font-weight: bold">Choose your Cuisines</h1>
       <div class="container row" v-if="!formCompleted">
           <div  class="col-6" v-for="(cuisine, index) in cuisines" v-if="index >=0 && index < 6" >
             <div class="form-check row" >
               <label id="text" class="form-check-label" >
                 <div>
-                  {{ cuisine.name }}
+                  <h4>
+                    {{ cuisine.name }}
+                  </h4>
                 </div>
               </label>
               <div>
@@ -45,7 +47,9 @@
             <div class="form-check row" >
               <label id="text" class="form-check-label" >
                 <div>
-                  {{ cuisine.name }}
+                  <h4>
+                    {{ cuisine.name }}
+                  </h4>
                 </div>
               </label>
 
@@ -81,7 +85,7 @@
           </div>
 
         <div class=" container" >
-          <button type="button "   class="btn btn-secondary btn-lg button-go " v-on:click="formCompleted = true">GO!</button>
+          <button type="button " style="background-color: #419a1c"  class="btn btn-secondary btn-lg button-go " v-on:click="formCompleted = true"><h1>FEED ME!</h1></button>
         </div>  
       </div>
       <div v-else>
@@ -130,7 +134,7 @@
         left: 4px;
         top: 4px;
         z-index: 1;
-        animation: egg 2s linear forwards;
+        animation: egg 1.5s linear forwards;
         transform-style: preserve-3d;
         .front:before,
         .front:after,
@@ -210,7 +214,7 @@
         opacity: 0;
         transform-origin: 20px 50%;
         transform: translateX(60px) translateY(-32px) rotate(-30deg) scale(0.8);
-        animation: flipper 2s linear;
+        animation: flipper 1.5s linear;
         &:after {
           content: "";
           width: 20px;
@@ -234,10 +238,10 @@
           animation: none;
         }
         .egg {
-          animation: crack 2s linear forwards;
+          animation: crack 1.5s linear forwards;
           .front {
             &:before {
-              animation: egg-white 0.8s linear forwards 1.4s;
+              animation: egg-white 0.6s linear forwards 1.2s;
             }
           }
           .back {
@@ -245,7 +249,7 @@
             &:after {
               --animate-y: -16px;
               transform: translateZ(-2px);
-              animation: egg-crack 0.8s linear forwards 1.4s;
+              animation: egg-crack 0.6s linear forwards 1.2s;
             }
             &:after {
               --animate-y: 16px;

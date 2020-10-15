@@ -1,9 +1,8 @@
-
 <template>
 <div class="container">
 	<div class="row">
 		<div class="col-md-9 col-center">
-			<h2><span>Thumbnail <b>Carousel</b></span></h2>
+			<!-- <h2><span>Other <b>Items  </b></span></h2> -->
 			<br>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 				<!-- Carousel indicators -->
@@ -11,7 +10,8 @@
 					<li 
 						data-target="#myCarousel" 
 						data-slide-to="0"  
-						style="width: 10px; height: 10px;" class="active "
+						style="width: 10px; height: 10px;" 
+            class="active "
 					>
 					</li>
           <li 
@@ -28,7 +28,20 @@
 						<div class="row" >
 							<div class="col-sm-4" v-for="(menu_item, index) in menu_items" v-if="index >=0 && index < 3">
                 <div class="img-box">
-                  <img :src="menu_item.image_url" class="img-responsive" alt="" style="width:100%;">
+                  <!-- <img :src="menu_item.image_url" class="img-responsive" alt="" style="width:100%;" data-toggle=> -->
+                  <img 
+                    :src="menu_item.image_url" 
+                    class="img-responsive" 
+                    alt="" style="width:100%;" 
+                    data-toggle="modal" 
+                    data-target="#exampleModal" 
+                    @click="currentMenuItem = menu_item"
+                  >
+                  <!-- <router-link :href="`${{menu_items.name}}`"> -->
+                    <h5>
+                      {{menu_item.name}}
+                    </h5>
+                  <!-- </router-link> -->
                 </div>
               </div>
 						</div>
@@ -37,7 +50,18 @@
 						<div class="row" >
 							<div class="col-sm-4" v-for="(menu_item, index) in menu_items" v-if="index > 2">
                 <div class="img-box">
-                  <img :src="menu_item.image_url" class="img-responsive" alt="" style="width:100%;">
+                  <!-- <img :src="menu_item.image_url" class="img-responsive" alt="" style="width:100%;"> -->
+                  <img 
+                    :src="menu_item.image_url" 
+                    class="img-responsive" 
+                    alt="" style="width:100%;" 
+                    data-toggle="modal" 
+                    data-target="#exampleModal" 
+                    @click="currentMenuItem = menu_item"
+                    >
+                  <h5 >
+                      {{menu_item.name}}
+                  </h5>
                 </div>
               </div>
 						</div>
@@ -54,6 +78,26 @@
 			</div>
 		</div>
 	</div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{currentMenuItem.name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>{{currentMenuItem.description}}</p>
+          <!-- <img :src="currentMenuItem.image_url" style="object-fit: contain"> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </template>
@@ -61,6 +105,11 @@
 <script>
 export default {
   props: ["menu_items"],
+  data() {
+    return {
+      currentMenuItem: {},
+    };
+  },
 };
 </script>
 
