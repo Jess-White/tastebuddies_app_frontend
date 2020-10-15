@@ -7,8 +7,8 @@
         <h4> {{restaurant.address}}</h4>
         <h4>{{restaurant.phone_number}}</h4>
         <a :href="`${restaurant.website}`"><h4>Website</h4></a>
-        <img class="img-restaurant" :src="restaurant.image_url" >
-        <h4>Cuisine ID: {{restaurant.cuisine_id}}</h4>
+        <a :href="`${restaurant.website}`"><img class="img-restaurant" :src="restaurant.image_url"></a>
+        <!-- <h4>Cuisine ID: {{restaurant.cuisine_id}}</h4> -->
         <Carousel :menu_items="menu_items"/>
       </div>
      
@@ -90,12 +90,14 @@
 
 <style>
 body {
-  background-image: url("/paper_2.png");
+  /* background-image: url("/paper_2.png"); */
+  background-image: url("https://cdn.wallpapersafari.com/84/52/7BbTQc.jpg");
+  background-position: center;
 }
-
 .img-restaurant {
   width: 450px;
   height: 450px;
+  border: white 10px solid;
 }
 </style>
 
