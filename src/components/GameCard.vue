@@ -192,8 +192,9 @@ $fs-card-title: 1.125em;
   }
 
   display: flex;
+  margin-left: auto;
   max-height: 350px;
-  margin: auto;
+  // margin: auto;
   font-size: $fs-h2;
   font-weight: $fw-bold;
   color: $c-white;

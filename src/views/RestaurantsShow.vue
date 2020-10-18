@@ -90,9 +90,9 @@
 
 <style>
 body {
-  /* background-image: url("/paper_2.png"); */
-  background-image: url("https://cdn.wallpapersafari.com/84/52/7BbTQc.jpg");
-  background-position: center;
+  background-image: url("/paper_2.png");
+  /* background-image: url("https://cdn.wallpapersafari.com/84/52/7BbTQc.jpg"); */
+  /* background-position: center; */
 }
 .img-restaurant {
   width: 450px;

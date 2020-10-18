@@ -1,7 +1,7 @@
 <template>
   <div class="cuisines-index">
     <div class="container">
-        <h1 class="display-4" style="font-weight: bold">Choose your Cuisines</h1>
+        <h1 class="display-3" style="font-weight: bold; margin-top: 4%">Choose your Cuisines</h1>
       <div class="container row" v-if="!formCompleted">
           <div  class="col-6" v-for="(cuisine, index) in cuisines" v-if="index >=0 && index < 6" >
             <div class="form-check row" >

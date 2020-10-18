@@ -41,9 +41,9 @@
   font-weight: bold;
 }
 body {
-  /* background-image: url("/paper_2.png");
-   */
-  background-image: url("https://cdn.wallpapersafari.com/84/52/7BbTQc.jpg");
+  background-image: url("/paper_2.png");
+
+  /* background-image: url("https://cdn.wallpapersafari.com/84/52/7BbTQc.jpg"); */
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
