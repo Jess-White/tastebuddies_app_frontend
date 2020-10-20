@@ -213,6 +213,14 @@ h2 span {
   background-color: #555;
 }
 
+.modal {
+  font-size: 20px;
+}
+
+.modal-title {
+  font-size: 25px;
+}
+
 // .carousel-indicators li {
 //   width: 10px;
 //   height: 10px;

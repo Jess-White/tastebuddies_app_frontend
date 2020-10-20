@@ -1,9 +1,13 @@
 <template>
   <div class="restaurants-show">
-
+    <div class="row">
+      <router-link v-bind:to="'/cuisines'" class="btn btn-success btn-lg button-go" style="text-align: center; margin: 0 auto;">
+        Start Over
+      </router-link>
+    </div>
     <div class="row">
       <div class="col">
-        <h4> {{restaurant.name}}</h4>
+        <h1> {{restaurant.name}}</h1>
         <h4> {{restaurant.address}}</h4>
         <h4>{{restaurant.phone_number}}</h4>
         <a :href="`${restaurant.website}`"><h4>Website</h4></a>

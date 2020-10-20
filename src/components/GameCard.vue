@@ -9,7 +9,7 @@
     class="card"
     :style="{ transform: transformString }"
   >
-    <img :src="card" style="width: 200px; height: 300px;">
+    <img :src="card" style="width: 500px; height: 600px;">
   </div>
 </template>
 
@@ -193,7 +193,9 @@ $fs-card-title: 1.125em;
 
   display: flex;
   margin-left: auto;
-  max-height: 350px;
+  max-height: 700px;
+  width: 200%;
+  text-align: center;
   // margin: auto;
   font-size: $fs-h2;
   font-weight: $fw-bold;

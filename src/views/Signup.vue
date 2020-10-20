@@ -5,8 +5,8 @@
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-      <div class="row pt-5 mx-auto" >
-        <div class="col-8 form-group mx-auto">
+      <div class="row pt-5 mx-auto" style="font-size: 15px;">
+        <div class="col-8 form-group mx-auto" >
           <label>Name:</label> 
           <input type="text" class="form-control" v-model="username">
         </div>
