@@ -78,7 +78,6 @@
 			</div>
 		</div>
 	</div>
-
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -212,6 +211,14 @@ h2 span {
 }
 .carousel-indicators li.active {
   background-color: #555;
+}
+
+.modal {
+  font-size: 20px;
+}
+
+.modal-title {
+  font-size: 25px;
 }
 
 // .carousel-indicators li {
