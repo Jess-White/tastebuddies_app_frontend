@@ -11,15 +11,20 @@
     </ol>
     <div>
       <h1>Tastebuddies was prepared by:</h1>
-      <div><a href="https://www.linkedin.com/in/kamil-dziekan/">Kamil Dziekan</a></div>
-        <div><a href="https://www.linkedin.com/in/walter-gray/">Walter Gray</a></div>
-        <div><a href="https://www.linkedin.com/in/robkondratowicz">Rob Kondratowicz</a></div>
-        <div><a href="https://www.linkedin.com/in/jess-white-chicago/">Jess White</a></div>
+      <div>
+        <a href="https://www.linkedin.com/in/kamil-dziekan/">
+          Kamil Dziekan
+        </a>
+        <!-- <i class="fab fa-github"></i> -->
+      </div>
+      <div>
+        <a href="https://www.linkedin.com/in/walter-gray/">
+          Walter Gray
+        </a>
+      </div>
+      <div><a href="https://www.linkedin.com/in/robkondratowicz">Rob Kondratowicz</a></div>
+      <div><a href="https://www.linkedin.com/in/jess-white-chicago/">Jess White</a></div>
     </div>
-
-
-
-
   </div>
 </template>
 
@@ -35,4 +40,3 @@ a {
   font-size: 20px;
 }
 </style>
-

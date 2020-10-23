@@ -2,7 +2,6 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-9 col-center">
-			<!-- <h2><span>Other <b>Items  </b></span></h2> -->
 			<br>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 				<!-- Carousel indicators -->
@@ -28,7 +27,6 @@
 						<div class="row" >
 							<div class="col-sm-4" v-for="(menu_item, index) in menu_items" v-if="index >=0 && index < 3">
                 <div class="img-box">
-                  <!-- <img :src="menu_item.image_url" class="img-responsive" alt="" style="width:100%;" data-toggle=> -->
                   <img 
                     :src="menu_item.image_url" 
                     class="img-responsive" 
@@ -37,11 +35,9 @@
                     data-target="#exampleModal" 
                     @click="currentMenuItem = menu_item"
                   >
-                  <!-- <router-link :href="`${{menu_items.name}}`"> -->
-                    <h5>
-                      {{menu_item.name}}
-                    </h5>
-                  <!-- </router-link> -->
+                  <h5>
+                    {{menu_item.name}}
+                  </h5>
                 </div>
               </div>
 						</div>
@@ -50,7 +46,6 @@
 						<div class="row" >
 							<div class="col-sm-4" v-for="(menu_item, index) in menu_items" v-if="index > 2">
                 <div class="img-box">
-                  <!-- <img :src="menu_item.image_url" class="img-responsive" alt="" style="width:100%;"> -->
                   <img 
                     :src="menu_item.image_url" 
                     class="img-responsive" 
@@ -89,7 +84,6 @@
         </div>
         <div class="modal-body">
           <p>{{currentMenuItem.description}}</p>
-          <!-- <img :src="currentMenuItem.image_url" style="object-fit: contain"> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -191,13 +185,13 @@ h2 span {
   text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
 }
 .carousel .carousel-indicators {
-  // bottom: -40px;
-  // width: 10px;
-  // height: 10px;
-  // border-radius: 50%;
+  bottom: -40px;
+  border-radius: 50%;
+  margin-left: 19%;
 }
 .carousel-indicators li,
 .carousel-indicators li.active {
+  margin-top: 50px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -208,9 +202,11 @@ h2 span {
   background-color: #999;
   border-color: transparent;
   border-radius: 50%;
+  margin-top: 50px;
 }
 .carousel-indicators li.active {
   background-color: #555;
+  margin-top: 50px;
 }
 
 .modal {
@@ -220,27 +216,5 @@ h2 span {
 .modal-title {
   font-size: 25px;
 }
-
-// .carousel-indicators li {
-//   width: 10px;
-//   height: 10px;
-// }
-
-// .carousel-indicators li {
-//   box-sizing: content-box;
-//   flex: 0 1 auto;
-//   width: 10px;
-//   height: 10px;
-//   margin-right: 3px;
-//   margin-left: 3px;
-//   text-indent: -999px;
-//   cursor: pointer;
-//   background-color: #fff;
-//   background-clip: padding-box;
-//   border-top: 10px solid transparent;
-//   border-bottom: 10px solid transparent;
-//   opacity: 0.5;
-//   transition: opacity 0.6s ease;
-// }
 </style>
                                		
