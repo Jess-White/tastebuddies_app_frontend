@@ -42,7 +42,6 @@ export default {
         .then((response) => {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.accessToken;
-          console.log(response.data.accessToken, "HI JWT");
           localStorage.setItem("jwt", response.data.accessToken);
           this.$router.push("/cuisines");
         })
