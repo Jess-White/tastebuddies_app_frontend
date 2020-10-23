@@ -6,10 +6,10 @@
       isAnimating: isInteractAnimating,
       isCurrent: isCurrent
     }"
-    class="card"
+    class="card container"
     :style="{ transform: transformString }"
   >
-    <img :src="card" style="width: 500px; height: 600px;">
+    <img :src="card" style="width: 90%; height: 90%;">
   </div>
 </template>
 
@@ -193,10 +193,9 @@ $fs-card-title: 1.125em;
 
   display: flex;
   margin-left: auto;
-  max-height: 700px;
-  width: 200%;
-  text-align: center;
-  // margin: auto;
+  max-height: 600px;
+  width: 190%;
+  margin: auto;
   font-size: $fs-h2;
   font-weight: $fw-bold;
   color: $c-white;
@@ -254,6 +253,13 @@ $fs-card-title: 1.125em;
         @include sizing(0 0);
       }
     }
+  }
+}
+@media only screen and (max-width: 760px) {
+  .card{
+	  max-height: 350px;
+	  width: 110%;
+    margin: auto;
   }
 }
 </style>

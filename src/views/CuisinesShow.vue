@@ -10,12 +10,6 @@
 </div>
 </template>
 
-<style scoped>
-body {
-  /* background-image: url("https://cdn.wallpapersafari.com/84/52/7BbTQc.jpg"); */
-}
-</style>
-
 <script>
 var axios = require("axios");
 

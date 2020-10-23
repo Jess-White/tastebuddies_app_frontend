@@ -1,41 +1,32 @@
 <template>
   <div class="menu-items-index">
-
     <div class="container">
-      
       <div class="row"></div>
       <form class="col"
       v-on:submit.prevent="createMenuItem()">
         <h1>New Menu Item</h1>
-
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
-
         <div class="form-group">
           <label>Name </label>
           <input class="form-control" type="text" v-model="name">
         </div>
-
         <div class="form-group">
           <label>Description </label>
           <input class="form-control" type="text" v-model="description">
         </div>
-
         <div class="form-group">
           <label>Image Url: </label>
           <input class="form-control" type="text" v-model="image_url">
         </div>
-
         <div class="form-group">
           <label>Restaurant ID </label>
           <input class="form-control" type="text" v-model="restaurant_id">
         </div>
-
         <input class="btn btn-info" type="submit" value="Add New Menu Item">
       </form>
     </div>
-
     <div class="container">
       <h1>Menu Items</h1>
       <div class="row">
@@ -49,7 +40,6 @@
           </router-link>
           <div>
             <button v-on:click="menu_item.showEditMenuItemForm = !menu_item.showEditMenuItemForm">Edit Menu Item</button>
-
             <div v-if="menu_item.showEditMenuItemForm">
                   <div class="container">
                     <div class="row">
@@ -58,33 +48,25 @@
                         <ul>
                           <li class="text-danger" v-for="error in errors">{{ error }}</li>
                         </ul>
-
                         <div class="form-group">
                           <label>Name: </label>
                           <input class="form-control" type="text" v-model="menu_item.name">
                         </div>
-
                         <div class="form-group">
                           <label>Description: </label>
                           <input class="form-control" type="text" v-model="menu_item.description">
                         </div>
-
-
                         <div class="form-group">
                           <label>Image URL: </label>
                           <input class="form-control" type="text" v-model="menu_item.image_url">
                         </div>
-
                         <div class="form-group">
                           <label>Restaurant: </label>
                           <input class="form-control" type="text" v-model="menu_item.restaurant_id">
                         </div>
-
-
                         <input class="btn btn-info m-2" type="submit" value="Save">
                         <button class="btn btn-info m-2" v-on:click="destroyMenuItem()">Delete</button>
                       </form>
-
                     </div>
                   </div>
             </div>
@@ -93,11 +75,7 @@
       </div>
     </div>
   </div>
-
 </template>
-
-<style>
-</style>
 
 <script>
 var axios = require("axios");

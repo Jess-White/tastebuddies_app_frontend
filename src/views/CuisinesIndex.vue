@@ -1,7 +1,7 @@
 <template>
   <div class="cuisines-index">
     <div class="container">
-        <h1 class="display-3" style="font-weight: bold; margin-top: 4%">Choose your Cuisines</h1>
+      <h1 class="cuisine-header">Choose Your Cuisines</h1>
       <div class="container row" v-if="!formCompleted">
           <div  class="col-6" v-for="(cuisine, index) in cuisines" v-if="index >=0 && index < 6" >
             <div class="form-check row" >
@@ -88,16 +88,21 @@
           <button type="button " style="background-color: #419a1c"  class="btn btn-secondary btn-lg button-go " v-on:click="formCompleted = true"><h1>FEED ME!</h1></button>
         </div>  
       </div>
-      <div v-else>
+      <div v-else class="test">
         <MenuItemsSwipe :filteredCuisines="filteredCuisines" />
       </div>
     </div>
   </div>
-
 </template>
 
-
 <style lang="scss">
+.test {
+  padding-bottom: 50px;
+}
+.cuisine-header {
+  font-weight: bold;
+  font-size: 30px;
+}
 .button-go {
   margin-top: 2%;
   width: 60%;
@@ -375,6 +380,12 @@ html {
     box-sizing: inherit;
   }
 }
+@media only screen and (max-width: 760px) {
+  .cuisine-header {
+      font-weight: bold;
+      font-size: 20px;
+  }
+}
 </style>
 
 <script>
@@ -421,6 +432,3 @@ export default {
   },
 };
 </script>
-
-
-// class="form-check-input checkmark"
