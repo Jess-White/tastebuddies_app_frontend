@@ -1,7 +1,7 @@
 <template>
   <div class="restaurants-show">
     <div class="row">
-      <router-link v-bind:to="'/cuisines'" class="btn btn-success btn-lg" style="text-align: center; margin: 0 auto; width: 30%; color: black; font-size: 20px; font-weight: bold; letter-spacing: 2px; margin-bottom: 2%;">
+      <router-link v-bind:to="'/'" class="btn btn-success btn-lg" style="text-align: center; margin: 0 auto; width: 30%; color: black; font-size: 20px; font-weight: bold; letter-spacing: 2px; margin-bottom: 2%;">
         Start Over
       </router-link>
     </div>
