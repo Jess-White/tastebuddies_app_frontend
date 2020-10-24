@@ -420,7 +420,6 @@ export default {
           return cuisine !== event.target.value;
         });
       }
-      console.log(this.checkedCuisines);
     },
   },
   computed: {

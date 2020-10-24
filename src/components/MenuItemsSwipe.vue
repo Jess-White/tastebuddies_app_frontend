@@ -106,7 +106,6 @@ export default {
     filteredMenuItems.forEach((menu_item) => {
       filteredImages.push(menu_item.image_url);
     });
-    console.log(filteredImages);
   },
   methods: {
     handleCardAccepted(card) {
@@ -118,7 +117,6 @@ export default {
       });
     },
     handleCardRejected(card) {
-      console.log("handleCardRejected");
       this.filteredImages = this.filteredImages.filter(
         (image) => card !== image
       );
