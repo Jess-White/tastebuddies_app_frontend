@@ -37,7 +37,7 @@ export default {
   display: flex;
   width: 300px;
   margin: auto;
-  margin-bottom: 40%;
-  margin-right: 50%;
+  // margin-bottom: 40%;
+  // margin-right: 50%;
 }
 </style>

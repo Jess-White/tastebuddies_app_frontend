@@ -191,6 +191,7 @@ $fs-card-title: 1.125em;
     background: rgba($c-black, 0.3);
   }
 
+
   display: flex;
   margin-left: auto;
   max-height: 600px;
