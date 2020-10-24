@@ -1,7 +1,7 @@
 <template>
   <div class="restaurants-show">
     <div class="row">
-      <router-link v-bind:to="'/cuisines'" class="btn btn-success btn-lg button-go" style="text-align: center; margin: 0 auto;">
+      <router-link v-bind:to="'/cuisines'" class="btn btn-success btn-lg" style="text-align: center; margin: 0 auto; width: 30%; color: black; font-size: 20px; font-weight: bold; letter-spacing: 2px; margin-bottom: 2%;">
         Start Over
       </router-link>
     </div>
@@ -12,96 +12,25 @@
         <h4>{{restaurant.phone_number}}</h4>
         <a :href="`${restaurant.website}`"><h4>Website</h4></a>
         <a :href="`${restaurant.website}`"><img class="img-restaurant" :src="restaurant.image_url"></a>
-        <!-- <h4>Cuisine ID: {{restaurant.cuisine_id}}</h4> -->
         <Carousel :menu_items="menu_items"/>
       </div>
-     
-       <!-- <div>
-         <button v-on:click="showEditRestaurantFormMethod()">Edit Restaurant</button>
-          <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
-        </div> -->
      </div> 
-
-     <!-- <div v-if="showEditRestaurantForm">
-        <div>
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <div>
-                  <h4>Edit Restaurant</h4>
-                </div>
-               </div>
-            </div>
-          </div>
-        </div> -->
-
-       <!-- <div>
-          <button v-on:click="restaurant.showEditRestaurantForm = !restaurant.showEditRestaurantForm">Edit Menu Item</button>
-
-          <div v-if="restaurant.showEditRestaurantForm">
-            <div class="container">
-              <div class="row">
-                <form class="col" v-on:submit.prevent="updateRestaurant()">
-                  <h1>Edit Restaurant</h1>
-                  <ul>
-                    <li class="text-danger" v-for="error in errors">{{ error }}</li>
-                  </ul>
-
-                  <div class="form-group">
-                    <label>Name: </label>
-                    <input class="form-control" type="text" v-model="restaurant.name">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Address: </label>
-                    <input class="form-control" type="text" v-model="restaurant.address">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Phone Number: </label>
-                    <input class="form-control" type="text" v-model="restaurant.phone_number">
-                  </div>
-
-
-                  <div class="form-group">
-                    <label>Website: </label>
-                    <input class="form-control" type="text" v-model="restaurant.website">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Image URL: </label>
-                    <input class="form-control" type="text" v-model="restaurant.image_url">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Cuisine ID: </label>
-                    <input class="form-control" type="text" v-model="restaurant.cuisine_id">
-                  </div>
-
-
-                  <input class="btn btn-info m-2" type="submit" value="Save">
-                  <button class="btn btn-info m-2" v-on:click="destroyRestaurant()">Delete</button>
-                </form>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-</div> -->
 </div>
 </template>
 
 <style>
 body {
   background-image: url("/paper_2.png");
-  /* background-image: url("https://cdn.wallpapersafari.com/84/52/7BbTQc.jpg"); */
-  /* background-position: center; */
 }
 .img-restaurant {
   width: 450px;
   height: 450px;
   border: white 10px solid;
+}
+@media only screen and (max-width: 760px) {
+  .img-restaurant {
+    width: 400px;
+  }
 }
 </style>
 

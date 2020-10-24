@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div class="go-back ">
+    <div class="go-back">
       <button  class="animation" @click="goBack">Go Back!</button>
     </div>
-    <div >
+    <div>
       <GameCardsStack
           :cards="filteredImages"
           @cardAccepted="handleCardAccepted"
@@ -12,15 +12,13 @@
           @hideCard="removeCardFromDeck"
         />
     </div>
-  
-        <!-- get the image_url as an event when cardAccepted -->
   </div>
 </template>
 
 <style>
 .go-back {
   margin: auto;
-  padding: 40px;
+  padding-bottom: 10px;
 }
 .animation {
   background-color: #f4511e;
@@ -39,6 +37,11 @@
 }
 .animation:hover {
   opacity: 1;
+}
+@media only screen and (max-width: 760px) {
+  .animation{
+    padding: 8px 16px;
+  }
 }
 </style>
 
@@ -113,11 +116,6 @@ export default {
       this.$router.push({
         path: `restaurants/${menu_item.restaurant_id} `,
       });
-
-      // axios.get("'/restaurants/' + restaurant.id").then((response) => {
-      // this.restaurants = response.data;
-
-      // window.location.href = "."
     },
     handleCardRejected(card) {
       console.log("handleCardRejected");

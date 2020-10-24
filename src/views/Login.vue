@@ -5,7 +5,6 @@
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-
       <div class="row pt-5 mx-auto" style="font-size: 15px;">
         <div class="col-8 form-group mx-auto">
           <label>Username:</label>
@@ -43,7 +42,6 @@ export default {
         .then((response) => {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.accessToken;
-          console.log(response.data.accessToken, "HI JWT");
           localStorage.setItem("jwt", response.data.accessToken);
           this.$router.push("/cuisines");
         })
