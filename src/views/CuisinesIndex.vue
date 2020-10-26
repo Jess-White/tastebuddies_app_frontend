@@ -88,7 +88,7 @@
           <button type="button " style="background-color: #419a1c"  class="btn btn-secondary btn-lg button-go " v-on:click="formCompleted = true"><h1>FEED ME!</h1></button>
         </div>  
       </div>
-      <div v-else class="test">
+      <div v-else class="menu-item-swipe">
         <MenuItemsSwipe :filteredCuisines="filteredCuisines" />
       </div>
     </div>
@@ -96,16 +96,18 @@
 </template>
 
 <style lang="scss">
-.test {
+.menu-item-swipe {
   padding-bottom: 50px;
 }
 .cuisine-header {
   font-weight: bold;
   font-size: 30px;
+  // margin: auto;
 }
 .button-go {
   margin-top: 2%;
   width: 60%;
+  margin: auto;
 }
 .egg-switch {
   --background: #171827;
@@ -420,7 +422,6 @@ export default {
           return cuisine !== event.target.value;
         });
       }
-      console.log(this.checkedCuisines);
     },
   },
   computed: {

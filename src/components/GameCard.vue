@@ -190,10 +190,8 @@ $fs-card-title: 1.125em;
     border-radius: 100px;
     background: rgba($c-black, 0.3);
   }
-
-
   display: flex;
-  margin-left: auto;
+  // margin-left: auto;
   max-height: 600px;
   width: 190%;
   margin: auto;
