@@ -38,6 +38,13 @@ export default {
   width: 300px;
   margin: auto;
   // margin-bottom: 40%;
-  // margin-right: 50%;
+  margin-right: 48.5%;
 }
+@media only screen and (max-width: 760px) {
+  .cards {
+    margin-right: 15%;
+    width: 90%;
+  }
+}
+
 </style>
