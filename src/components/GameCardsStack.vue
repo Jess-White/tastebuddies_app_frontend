@@ -42,7 +42,7 @@ export default {
 }
 @media only screen and (max-width: 760px) {
   .cards {
-    margin-right: 15%;
+    // margin-right: 15%;
     width: 90%;
   }
 }

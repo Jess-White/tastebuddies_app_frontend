@@ -257,7 +257,7 @@ $fs-card-title: 1.125em;
 @media only screen and (max-width: 760px) {
   .card{
 	  max-height: 350px;
-	  width: 110%;
+	  width: 150%;
     margin: auto;
   }
 }
